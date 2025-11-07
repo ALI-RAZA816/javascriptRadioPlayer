@@ -1,0 +1,202 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F8D76E;
+}
+
+.playerContainer{
+    height: 220px;
+    min-width: 380px;
+    max-width: 380px;
+    display: flex;
+    position: relative;
+    gap:15px;
+    padding: 0 2rem;
+    align-items: center;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #D52F30;
+}
+
+.playerContainer::after{
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    height: 10px;
+    width: 100%;
+    background-color: #922020;
+}
+
+.rotatingDisc{
+    height: 200px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #1A1311;
+}
+
+.rotatingDisc.active{
+   animation: rotate 5s linear 0s infinite;
+}
+
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.rotatingDisc .c1,
+.rotatingDisc .c2,
+.rotatingDisc .c3{
+    height: 150px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 5px solid transparent;
+    border-top-color:#35322ef5;
+    border-bottom-color:#35322ef5;
+}
+
+.rotatingDisc .c2{
+    height: 100px !important;
+    width: 100px !important;
+}
+
+.rotatingDisc .c3{
+    height: 50px;
+    width: 50px;
+    position: relative;
+    border: none !important;
+    background-color: orange;
+}
+
+.rotatingDisc .c3::before{
+    height:15px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    position: absolute;
+    content:" ";
+    top: 50%;
+    left: 50%;
+    background-color: #1A1311;
+    transform: translate(-50%, -50%);
+}
+
+.rightBox{
+    height: 100%;
+    /* border: 1px solid #fff; */
+}
+
+.toneHead{
+    margin-top: 1rem;
+    height:45px;
+    aspect-ratio: 1;
+    position: relative;
+    border-radius: 50%;
+    background-color: #333;
+    transition: transform .30s ease;
+}
+
+.toneHead.active{
+    transform-origin: top;
+    transform: rotate(20deg);
+}
+
+.toneHead::before{
+    height: 15px;
+    aspect-ratio: 1;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    content: " ";
+    background-color: #1A1311;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.stick{
+    height: 80px;
+    width: 6px;
+    top: 45px;
+    left:20px;
+    position: absolute;
+    background-color: #fff;
+}
+
+.stick::before,
+.stick::after{
+    height: 30px;
+    width: 6px;
+    position: absolute;
+    content: " ";
+    bottom: -27px;
+    left: -7px;
+    transform: rotate(30deg);
+    background-color: #fff;
+}
+
+.stick::after{
+    height: 15px !important;
+    width: 15px !important;
+    bottom: -32px;
+    left: -19px;
+    background-color: #949494;
+    transform: rotate(32deg);
+}
+
+.controls{
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+    gap: 20px;
+    transform: rotate(-90deg);
+    flex-direction: row-reverse;
+}
+
+.controls .volume{
+    appearance: none;
+    -webkit-appearance: none;
+    background: none;
+    height: 20px;
+    width: 125px;
+    outline: none;
+    border-radius: 2px;
+    border: 5px solid rgba(238, 91, 91, 0.938);
+    background-color: #922020c7;
+}
+
+.controls .volume::-webkit-slider-thumb{
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: none;
+    height: 13px;
+    width: 12px;
+    background-color: #fff;
+}
+
+.controls .playBtn{
+    height:30px;
+    cursor: pointer;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: rgba(238, 91, 91, 0.938);
+    border: 2px solid #922020;
+}
