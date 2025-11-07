@@ -200,3 +200,11 @@ body{
     background-color: rgba(238, 91, 91, 0.938);
     border: 2px solid #922020;
 }
+@media screen and (max-width:470px) {
+
+    .playerContainer {
+        height: 220px;
+        width: 370px !important;
+    }
+
+}
